@@ -38,25 +38,15 @@ class CustomKNN:
 # Example usage
 if __name__ == "__main__":
     # Load the dataset
-    data = pd.read_csv('./dataset.csv')  # Update with your actual file path
-
+    data = pd.read_csv('./dataset.csv')
     # Prepare features (X) and labels (y)
     X = data.iloc[:, :-1].values  # All rows, all columns except the last one
     y = data.iloc[:, -1].values   # All rows, only the last column (gesture labels)
-
     # Create an instance of CustomKNN
     knn = CustomKNN(k=3)  # You can experiment with different values of k
-
     # Fit the model
     knn.fit(X, y)
-
     # Make predictions on a sample (for example, the first test sample)
     sample_data = np.array([[338.27794587544304, 356.3608903714182, 326.48402123972147, 317.0225736078043, 300.0044154933058]])  # Replace with actual angles
     prediction = knn.predict(sample_data)
     print(f'Predicted Gesture: {prediction[0]}')
-
-    # Evaluate the model with the test set (optional)
-    from sklearn.model_selection import train_test_split
-    from sklearn.metrics import accuracy_score
-
-    # Split the dataset into training and testing sets
