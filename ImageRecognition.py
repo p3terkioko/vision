@@ -6,19 +6,18 @@ from sampler import get_stable_gesture  # Import the sampling function
 from KNN import CustomKNN
 import pandas as pd
 # Load the dataset
-data = pd.read_csv('./dataset.csv')  # Update with your actual file path
+data = pd.read_csv('./dataset.csv') 
 # Prepare features (X) and labels (y)
 X = data.iloc[:, :-1].values  # All rows, all columns except the last one
 y = data.iloc[:, -1].values   # All rows, only the last column (gesture labels)
 # Create an instance of CustomKNN
-knn = CustomKNN(k=3)  # You can experiment with different values of k
+knn = CustomKNN(k=3)  
 # Fit the model
 knn.fit(X, y)
 
 # Initialize MediaPipe hands and drawing modules
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
-
 def get_angles(hand_landmarks, frame_center):
     # Extract necessary landmarks for checking positions
     wrist = hand_landmarks.landmark[mp_hands.HandLandmark.WRIST]
