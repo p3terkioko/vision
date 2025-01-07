@@ -78,7 +78,7 @@ with mp_hands.Hands(max_num_hands=1, min_detection_confidence=0.7) as hands:
                 mp_drawing.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
                 
                 angles = get_angles(hand_landmarks, frame_center)
-                print(f"Finger Angles: {angles}")
+                #print(f"Finger Angles: {angles}")
                 # Reshape to 2D for model prediction
                 gesture = knn.predict(angles)[0]
                 gesture = get_stable_gesture(gesture)
