@@ -23,7 +23,7 @@ def send_command(port, baud_rate, command):
         print(f"Error: {e}")
 
 if __name__ == "__main__":
-    port = "COM4"  # Replace with the correct outgoing port for HC-05
+    port = "COM7"  # Replace with the correct outgoing port for HC-05
     baud_rate = 9600
     
     print("Robot Control")
